@@ -1,0 +1,864 @@
+--[[
+  ⚠️ ОБФУСЦИРОВАННЫЙ КОД LUA ⚠️
+  Сгенерировано: 06.01.2026, 01:36:59
+  Исходных строк: 1
+  Обфусцированных строк: ~1000
+  Инструмент: Lua Obfuscator v1.0
+  ВНИМАНИЕ: Этот код был обфусцирован для защиты от обратной разработки
+]]
+
+-- Секция 1: Инициализация переменных
+local exTpYdMjMH = 1770
+local OgywssTwwt = 7756
+local ZMAAJFwcqX = 3579
+local TJxCjPyxnr = 9690
+local KCxbvJfyna = 121
+local LRxHkEHECl = 8069
+local IuaqaEkjsP = 2299
+local kFSkMYVRUY = 5374
+local ksYcRzhAxg = 4901
+local BklhBkuYDt = 3194
+local bmcGExVTMg = 3139
+local X_oXAyYHwv = 9328
+local ATiUjoMFUw = 3621
+local RtBCHaVEls = 5683
+local DifxsqicHg = 5027
+local JNaUOtDghg = 4411
+local YaqYViRKe_ = 9805
+local vaLkAqwIQu = 4717
+local YmgscxiuGi = 6087
+local oZdJhoUERg = 484
+local PvOSAJDuxc = 1283
+local ekBJpfUAzl = 9382
+local cxOuEmpHXu = 460
+local RxBWeFtPbc = 9334
+local CPWVjSBjTp = 1553
+local dBOrLAHgVr = 1681
+local ZxBOoR_ZAt = 8743
+local ubctbQSxPq = 5170
+local gMzKKwBfux = 9158
+local KxjShRHfJL = 7317
+local obcUQLGpey = 3259
+local snZEJzUZsO = 3388
+local WYkxzGgeqH = 6794
+local CZyLguPHtc = 4270
+local xOqnoEKjuh = 7589
+local cjhJ_zI_Zq = 8122
+local QtHYNRhCNr = 6336
+local _lIlfefwph = 6066
+local QvvIXrhsKS = 6217
+local AHfqdgKHpB = 1502
+
+-- Секция 2: Вспомогательные функции
+
+function lL_ZkeRK(jYsZmO, RSuFPl)
+    local _PkUKW = 941
+    local _feVtM = 580
+    local _qAXtj = "VFzwqS_RZDjJMJY"
+    for _oSnlL = 1, 10 do
+        _BKnlw = _vxD_V + _MAyFM
+        if _hFTp_ > 122 then
+            _xJuEt = _JTVuG / 3
+        end
+    end
+    return _awdTL * _akFHG + string.len(_HbsLm)
+end
+                
+
+function acaHbLPk(JLewv_, rbFtOn)
+    local _uweZg = 868
+    local _QrHFN = 653
+    local _xTVXA = "xrKvRSaTRTQZmoE"
+    for _AIBhH = 1, 5 do
+        _lceyj = _jIPlm + _LwGVc
+        if _ny_oX > 133 then
+            _KKoZc = _LcadC / 4
+        end
+    end
+    return _bbABJ * _RnSZP + string.len(_hZgDO)
+end
+                
+
+function auycaZTO(uvkjgV, wOYLWG)
+    local _kONdh = 122
+    local _zJMGy = 525
+    local _cvGHZ = "vYodzxOxzvnXAs_"
+    for _pcXSj = 1, 16 do
+        _aqVxq = _gXMis + _MKe_D
+        if _znn_z > 157 then
+            _PMJ_L = _Qmuvm / 4
+        end
+    end
+    return _KKvOs * _QFvnh + string.len(_FegXK)
+end
+                
+
+function aArBoBiT(HDDS_o, OMLEJc)
+    local _bkMBr = 796
+    local _iVHVf = 277
+    local _UXcdo = "JYKfdEnxrEdJbDg"
+    for _HXlgk = 1, 13 do
+        __VUAE = _Ouyvr + _udlUL
+        if _deTLW > 164 then
+            _ceWQU = _Wvpwg / 4
+        end
+    end
+    return _TZCsA * _TMdeW + string.len(__ZTDz)
+end
+                
+
+function vmKDkijQ(PmvCJd, IoKQu_)
+    local _lwiNC = 167
+    local _RWvIn = 370
+    local _wuzZv = "RwlWZbheZ_TaaAe"
+    for _mTPtP = 1, 10 do
+        _fFzCB = _cYxix + _Ro_pJ
+        if _bKMja > 191 then
+            _JzPgk = _waSRf / 2
+        end
+    end
+    return _TQRpQ * _ZPiJV + string.len(_BSIqA)
+end
+                
+
+function Ox_emKIi(ACkqJj, sVtqqY)
+    local _nATnI = 989
+    local _tCxcA = 429
+    local _NITYt = "NUzGSDtuo_e_WID"
+    for _gbvGv = 1, 14 do
+        _JDEjC = _zeQfz + _JjPZw
+        if _kFmbR > 145 then
+            _EkOTs = _toPRW / 5
+        end
+    end
+    return _HGGns * _IIMuT + string.len(_vGhcL)
+end
+                
+
+function IPkjKyce(ABlKIC, MLlPxD)
+    local _CwJnC = 178
+    local _ILzyG = 78
+    local _FyYlF = "QEWUAMLNCxpmKdx"
+    for _Lvyzu = 1, 7 do
+        _tMsea = _iaPWW + _yyldf
+        if _rtADE > 83 then
+            _eQpHe = _WhfgR / 4
+        end
+    end
+    return __Mkt_ * _VGhCz + string.len(_DKpMt)
+end
+                
+
+function wJL_gXfu(djEEET, yEglMo)
+    local _DcvuJ = 483
+    local _HAycG = 593
+    local _mprDD = "clEnMOuvwBMQOCz"
+    for _hMgvJ = 1, 6 do
+        _kEacH = _euPEA + _iPNxs
+        if _ksTMa > 63 then
+            _EMmNd = _VSTwG / 3
+        end
+    end
+    return ___DHO * _AWlBO + string.len(_bVSVs)
+end
+                
+
+function uURGvZOj(efQBmK, yaiSKK)
+    local _wQVJP = 896
+    local _EICqC = 218
+    local _yQwXH = "vsqlOVaROOVuRNb"
+    for _QTMOW = 1, 14 do
+        _eqwlC = _ATFrq + _azSBy
+        if _uzbmX > 182 then
+            _KNYpQ = _liwwZ / 3
+        end
+    end
+    return _wrGWo * _DptIt + string.len(_YFUCl)
+end
+                
+
+function zxHmRUgt(hJAvAZ, iNrzlG)
+    local _aDU_Y = 690
+    local _EdIII = 449
+    local _QqPMn = "WUafkECDgMMWPMJ"
+    for _uF_Tu = 1, 13 do
+        _YLorQ = _HZNZq + _PTOCT
+        if _jKpOs > 96 then
+            _zrTsO = _NnaIR / 4
+        end
+    end
+    return _IcCjF * _XTTKA + string.len(_yBnEd)
+end
+                
+
+function wTfqcQXi(ibaqmr, gLHpMI)
+    local _EOfZr = 892
+    local _pAX_J = 935
+    local _fdsFV = "GMVviXwppjxPVTi"
+    for _LUyeS = 1, 17 do
+        _aIw_A = _XXcNv + _folkH
+        if _KDnKn > 106 then
+            _wcytt = _chLrn / 4
+        end
+    end
+    return _AQKAw * _BTQCK + string.len(_hpDeR)
+end
+                
+
+function ww_WdmvH(QQQLyP, RgbgKr)
+    local _WmNfL = 723
+    local _arRQO = 61
+    local _XSamg = "gheQmJmYilUpiOV"
+    for _wDVkv = 1, 20 do
+        _UXPOs = _YbdSq + _zfmCW
+        if _pVCgA > 114 then
+            _jUVqv = _kHGZA / 3
+        end
+    end
+    return _AlJuk * _tMgsw + string.len(_fzlGu)
+end
+                
+
+function OaXAEezl(zbnZys, sGiXVi)
+    local _PlbEh = 713
+    local _QdhoX = 718
+    local _hqryj = "KRsrEFlxYQSOzgw"
+    for _cwDLd = 1, 9 do
+        _OYYXm = _xYWQH + _sfLly
+        if _fvuoE > 136 then
+            _fdIIr = _mSIT_ / 2
+        end
+    end
+    return _jKtUF * _C_aMD + string.len(_CsyZi)
+end
+                
+
+function KQWmMTRO(spMxLj, OmcqHi)
+    local _nxehR = 973
+    local _HpLYB = 416
+    local _AUoWv = "CrETqYpwJTXALqV"
+    for _NmTPb = 1, 15 do
+        _pWrOo = _vyyrH + _GmUQr
+        if _Zmztv > 154 then
+            _Lffdb = _dZngx / 4
+        end
+    end
+    return _k_pKw * _jejsi + string.len(_FcE_w)
+end
+                
+
+function hLrkhNZa(MZdMAD, hBkYqg)
+    local _aQlLc = 370
+    local _eUMnz = 209
+    local _sHyyt = "CeMWnsjNVhZzuyQ"
+    for _PBrMQ = 1, 5 do
+        _jpber = _Ehusk + _MDASC
+        if _bkxhO > 169 then
+            _vXrno = _FAqVi / 4
+        end
+    end
+    return _qBWAs * _OfAN_ + string.len(_HqA_h)
+end
+                
+
+function WPXhMmtv(dBFWjA, BBHPDi)
+    local _xBJYo = 328
+    local _Kinoo = 298
+    local _RVEJM = "mmEwMyncwwTdnbD"
+    for _xwkAX = 1, 12 do
+        _SrRkR = _nLPQA + _NjWuQ
+        if _QTvTv > 126 then
+            _sZXYD = _uOFxK / 5
+        end
+    end
+    return _kohvh * _xlhMF + string.len(_OAmOm)
+end
+                
+
+function qXIUoiGG(RaVXAr, VSj_XV)
+    local _LOATF = 571
+    local _mtUIk = 408
+    local _eKiDo = "rSqxWbCzccVGIhB"
+    for _PItaR = 1, 16 do
+        _dtZrf = _XRawb + _zsEGN
+        if _sNFbT > 158 then
+            _pSOEa = _USIaO / 2
+        end
+    end
+    return _atQLX * _tRGYk + string.len(_DRpjv)
+end
+                
+
+function OsGOTenQ(VYttzC, qDzfso)
+    local _UzzfE = 658
+    local _yalhI = 931
+    local _rtgC_ = "lMDTydbGhWbFaGj"
+    for _nHmxY = 1, 10 do
+        _gtTaW = _BsnHm + __nJzS
+        if _CziiU > 195 then
+            _IcFrR = _cKMPX / 4
+        end
+    end
+    return _ypLOh * _ustwz + string.len(_kafAh)
+end
+                
+
+function JJTNAkNU(ZPTVnx, xKLFor)
+    local _Rtkyj = 975
+    local _GitBu = 658
+    local _yclf_ = "xAntEfbe_kVkOEH"
+    for _ZiwCK = 1, 12 do
+        _EqxnO = _qkCwj + _HzRwC
+        if _qjQQC > 143 then
+            _JlxKK = _CDZVc / 3
+        end
+    end
+    return _JyMRk * _aNzjn + string.len(_KPngo)
+end
+                
+
+function skrKhHJz(uvyLTR, zlHlUw)
+    local _BhYPC = 737
+    local _VWyKI = 899
+    local _eJVGk = "JqXFhrJiaqQIDTF"
+    for __Crxm = 1, 8 do
+        _xpjYd = __RwJY + _lQvpx
+        if _Ncmok > 169 then
+            _qNYQP = _OrBi_ / 2
+        end
+    end
+    return _dMUmq * _OliWd + string.len(_CjmEn)
+end
+                
+
+function QiCCehha(_DJT_t, viRvZA)
+    local _kVpib = 574
+    local _oIKwz = 829
+    local _djLFE = "PQPBzVRQiEOkmEr"
+    for _aciDk = 1, 5 do
+        _mkGNu = _Odbyi + _TTnRS
+        if _bcoPY > 128 then
+            _cmrgj = _VFuhk / 2
+        end
+    end
+    return _KgbTk * _aNAhI + string.len(_K_ocE)
+end
+                
+
+function YROvWRFt(FxeFhZ, Ref_tu)
+    local _VoAqs = 965
+    local _pXLEw = 183
+    local _eIiNt = "iljqtNRbTmTtHww"
+    for _bbqkJ = 1, 9 do
+        _LQMTS = _lgkNJ + _oSXbN
+        if _KnYsa > 136 then
+            _CZfVb = _Xvuxx / 5
+        end
+    end
+    return _EigER * _YiDsU + string.len(_agubX)
+end
+                
+
+function UbDrf_iF(EYttub, zMHLQA)
+    local _RDzwK = 122
+    local _eNaYV = 720
+    local _YmoPv = "VKLavcygfIFHDM_"
+    for _PioBE = 1, 14 do
+        _ronlr = _aQFgq + _owQrj
+        if _ntuHt > 129 then
+            _vouXB = _tkyoB / 5
+        end
+    end
+    return _QxjWO * _OJTvq + string.len(_zARAO)
+end
+                
+
+function tARvEoIo(gNm_sy, rujvRt)
+    local _ZUVTr = 274
+    local _KFlYP = 279
+    local _OAxZN = "DZYnqixP_VRSjHb"
+    for _lRUBI = 1, 12 do
+        _RMcgX = _MlfaL + _zfiIV
+        if _UPcco > 193 then
+            _opSKV = _KCieN / 3
+        end
+    end
+    return _zBrQI * _lliLW + string.len(_VeWXr)
+end
+                
+
+function dE_YhuNF(jfQPcK, _DaZYJ)
+    local __sSaL = 438
+    local _UsWpT = 8
+    local _knsio = "YMGcX_HsLyqpJBn"
+    for _UYBiH = 1, 20 do
+        _MbfXt = _jaFcg + _OCIBn
+        if _EKxIU > 178 then
+            _vMQoO = _uHWDj / 4
+        end
+    end
+    return _Zlrmv * _EzbZK + string.len(_LlSCp)
+end
+                
+
+function jbLMyRLf(xUb_RY, iBTZyK)
+    local _YjYVV = 345
+    local _QSIIa = 225
+    local _hiMEW = "xnMRDfpYPElePsD"
+    for _krNFS = 1, 11 do
+        _fehVT = _RVoHo + _zLOQM
+        if _nkKrb > 53 then
+            _LnQTm = _NxoIv / 4
+        end
+    end
+    return _ccBzd * _MhQxz + string.len(_NGJai)
+end
+                
+
+function TDuiPodE(p_kjYn, LcFESf)
+    local _nJjRu = 463
+    local _ExuVX = 771
+    local _VtB_o = "bmRxdFAvnGkDZxE"
+    for _lhWMO = 1, 14 do
+        _tlrTQ = _FxndN + _Yztwg
+        if _KpNFZ > 161 then
+            _Ejrxk = _eQTdF / 4
+        end
+    end
+    return _ywD_M * _vcDDe + string.len(_lmGpz)
+end
+                
+
+function hEgs_PfD(QHFDO_, RzxUhI)
+    local _wakoP = 388
+    local _MbQoG = 327
+    local _sodhq = "w_eBqrEfHfKdJAh"
+    for _AadFP = 1, 19 do
+        _KqOgJ = _oVsRC + _Pejfh
+        if _BJgjz > 192 then
+            _gqKfI = _ixEQF / 4
+        end
+    end
+    return _uGY_o * _VFqid + string.len(_jfJUt)
+end
+                
+
+function apmKwHXU(gFLokE, _uwuda)
+    local _VxeZj = 318
+    local _VxxhI = 907
+    local _CQxtm = "OpYSCljgLMdAwnP"
+    for _FhLTF = 1, 10 do
+        _iDCCh = _ErQay + _lvuBR
+        if _qRJOo > 141 then
+            _vlZnT = __EVvh / 5
+        end
+    end
+    return _d_WaN * _nDxdg + string.len(_NKRxA)
+end
+                
+
+function NnPYcWyE(UKpDgL, IqCTMl)
+    local _aOcWa = 252
+    local _SYXIW = 129
+    local _UUMMn = "QbkqUJVsvdOJHat"
+    for _MaTbI = 1, 16 do
+        _a_ejb = _oevkf + _QdJlH
+        if _wTmNz > 174 then
+            _Xjuzn = _CR_dt / 3
+        end
+    end
+    return _CPye_ * _nCFUl + string.len(_huiwb)
+end
+                
+
+-- Секция 3: Таблицы данных
+local iJzGaelX = { ["fUihbP"] = 21, ["sNBqKf"] = 41, ["yikohm"] = 92 }
+local WQkxcjRP = { ["We_bVS"] = 96, ["dpwZRM"] = 9, ["GFmU_A"] = 49, ["eobnLD"] = 94, ["yHZIvn"] = 71 }
+local iy__gN__ = { ["xuDCOD"] = 51, ["xGSwLl"] = 28, ["WjADXN"] = 29, ["ziRZla"] = 13, ["VCqjBv"] = 54, ["QRoKKt"] = 39 }
+local fHDcFvvO = { ["YKBkyL"] = 97, ["XNuGko"] = 29, ["DyedAS"] = 91, ["NFcUtq"] = 65 }
+local ncPWFkBZ = { ["mPNYtK"] = 73, ["VIApem"] = 69, ["pbXriB"] = 12, ["jZPmZN"] = 38, ["XoTpKX"] = 41, ["lVKGXM"] = 40 }
+local vMHFtzIS = { ["LabIyp"] = 47, ["tjyQzx"] = 85, ["wVXMpC"] = 69, ["GkORuU"] = 88 }
+local ueUpBEDC = { ["BJ_I_J"] = 49, ["AfFVEQ"] = 99, ["KxcYjx"] = 83, ["PrKuKF"] = 77 }
+local YyiSWHxA = { ["pFFHfr"] = 57, ["BNJseO"] = 3, ["nDyoul"] = 98, ["jstSVR"] = 99 }
+local eiscaypc = { ["xIXIGb"] = 15, ["LsjtGc"] = 35, ["YFxJJl"] = 52, ["FBBTKM"] = 36, ["mhnNdr"] = 33 }
+local MdtmCbZU = { ["fIRvBU"] = 28, ["iArVvQ"] = 31, ["QdhwNY"] = 97, ["JcMNBs"] = 59, ["Zdfphc"] = 17 }
+local pfQqvUTW = { ["dxZIGB"] = 91, ["RjsXak"] = 65, ["VjIu_n"] = 25, ["yQXtcM"] = 37 }
+local DXhCIDQX = { ["VcPjdF"] = 76, ["TPkp_s"] = 52, ["AkxcHX"] = 55 }
+local kvghfvUV = { ["TzavvX"] = 91, ["PJVlEl"] = 99, ["aHJcGJ"] = 66 }
+local sPCxdDan = { ["NbffKi"] = 63, ["SmmLBc"] = 43, ["wilpcZ"] = 37, ["wksgOG"] = 98, ["ihOEHi"] = 44, ["aKtYbl"] = 8 }
+local UsHHxqTW = { ["oTwiFG"] = 23, ["HTabrW"] = 35, ["axu_Yp"] = 75, ["LrJVUo"] = 63, ["CmhvAw"] = 79, ["rqgHOe"] = 22, ["IiqfjL"] = 73, ["SZDFSk"] = 82 }
+
+-- Секция 4: Основная логика (обфусцированная)
+print("UodxBXISIde_!")
+
+-- Секция 5: Дополнительные функции
+
+function qrnvMJzl(XhKvht, uYTJaz)
+    local _heveU = 139
+    local _FFgNm = 442
+    local _fuZYu = "niTLgwtaxJCuQiM"
+    for _HDxGw = 1, 19 do
+        _aKFXs = _xPWkR + _TDCyW
+        if _lnXvu > 135 then
+            _LuROJ = _fDMqE / 5
+        end
+    end
+    return _KtHCU * _TGxTU + string.len(_atxRO)
+end
+                
+
+function CshTCHbG(bRnFHC, nANpPH)
+    local _nrRnu = 545
+    local _zphcH = 98
+    local _cftsf = "cIANquup_UZFhWU"
+    for _YcXDn = 1, 15 do
+        _gJdoB = _VBzfQ + _hraxO
+        if _ekeTd > 85 then
+            _yVTUy = _xDUob / 5
+        end
+    end
+    return _IQnhB * _oqeNE + string.len(_wAuXJ)
+end
+                
+
+function DtGrvKwb(LltLhm, JiPHfE)
+    local _ohVZh = 666
+    local _SOSHJ = 757
+    local _fSORl = "xIjohztAWNzIzXs"
+    for _MOjGk = 1, 18 do
+        _wpJej = _fiLuV + _mSBgy
+        if _HcGAX > 154 then
+            _YVZpF = _Zsiib / 3
+        end
+    end
+    return _xaJBA * _hzOtq + string.len(_dNndn)
+end
+                
+
+function etzUqsKK(irWxgD, gSZuhY)
+    local _lNPfm = 476
+    local _sswnL = 761
+    local _tQSDW = "XDcIMnYfitCKPab"
+    for _rytMy = 1, 9 do
+        _grDFR = _xvzcp + _xqNPU
+        if __vusQ > 50 then
+            _lQZGI = _WdBgU / 5
+        end
+    end
+    return _JtLZn * _vuSWB + string.len(_NNMxc)
+end
+                
+
+function WsxAqaYN(qdwVPD, nA_tSJ)
+    local _ylWwD = 890
+    local _tzexr = 758
+    local _jrjKB = "CPgpNm_oZqZsegO"
+    for _shglh = 1, 8 do
+        _VqJwm = _GyvHZ + _DXywN
+        if _WSlJx > 98 then
+            _PmRkO = _CfdOK / 3
+        end
+    end
+    return _KCnUV * _AEiPH + string.len(_Dmbnm)
+end
+                
+
+function nLbLEjfo(llhJZM, d_JnMA)
+    local _hNjta = 267
+    local _hciNh = 418
+    local _QMfy_ = "Ufd_uHIEBCMDHpm"
+    for _kHWFT = 1, 7 do
+        _GVGFu = _UEllP + _ZPpjO
+        if _iJxMq > 200 then
+            _HOoJr = _gbFie / 4
+        end
+    end
+    return _KInUc * _LFBWl + string.len(_pgyxq)
+end
+                
+
+function kOoMBqQa(ctQlrQ, kZAmwx)
+    local __CdVp = 290
+    local _zoxeD = 298
+    local _eQxC_ = "cvhitduCkKzSWSP"
+    for _UHgYc = 1, 8 do
+        _imzvz = _H_FhQ + _gXDoE
+        if _uDHWU > 90 then
+            _sQMiS = _UlWvV / 4
+        end
+    end
+    return _OsfGv * _ymeTi + string.len(_oKNFh)
+end
+                
+
+function qopcDJMa(LTXggz, _MsGNE)
+    local __jyGD = 460
+    local _aKXPk = 394
+    local _uOQMX = "cnPlMrzzDX_Oioi"
+    for _sxKeg = 1, 7 do
+        _tDrDw = _ToLqa + _qlDHl
+        if _efzaj > 65 then
+            _Csslc = _YEKEG / 4
+        end
+    end
+    return __Cvks * _ZTyNG + string.len(_rbWIf)
+end
+                
+
+function vGDLhLJE(soheIP, YfKrDy)
+    local _YGoVt = 196
+    local _qhpae = 749
+    local __uQgG = "tcPaVTRFnLUxkpI"
+    for _wOBSV = 1, 11 do
+        _iYv_S = _vBikD + _LzzGj
+        if _BpQji > 128 then
+            _OkTHK = _yPTpP / 5
+        end
+    end
+    return _qsMQA * _XhFGk + string.len(_Ktzuu)
+end
+                
+
+function nWNBceIp(xmEobU, cZTnTS)
+    local _C_oP_ = 222
+    local _coQwt = 123
+    local _wfAIp = "UcMhbUwsoSuLuYV"
+    for _kFCyo = 1, 7 do
+        _OUEPU = _XkO_E + _jIARD
+        if _pkuOL > 90 then
+            _FQFjN = _ZIEkz / 2
+        end
+    end
+    return _dfEul * _Wvgbu + string.len(_xMusm)
+end
+                
+
+function DziAPNZx(WjAOoA, bdUrAE)
+    local _jkZXX = 195
+    local _nXGmV = 550
+    local _dMWKZ = "sdrhSPqVfcViulm"
+    for _Rmvtm = 1, 5 do
+        _aeEXr = _oWcUV + _FDMPo
+        if _icQHh > 131 then
+            _LHHMP = _ShECx / 2
+        end
+    end
+    return _jnrAw * _qtxtD + string.len(_fLLnT)
+end
+                
+
+function lCmETBJQ(GpaWbY, lJEfmw)
+    local _XdCRk = 854
+    local _WbNdC = 37
+    local _fBLXn = "kJbarZBcOyvjhXR"
+    for _HjGwD = 1, 17 do
+        _dZNEY = _uUbRk + _jHQgi
+        if _RSKvx > 55 then
+            _pJlXm = _NDRgj / 4
+        end
+    end
+    return _ukxKS * _tjPDK + string.len(_FaJKP)
+end
+                
+
+function WhlBwQNm(XRxOHU, MyqviV)
+    local _TPcUT = 975
+    local _jLFuE = 178
+    local _OksKL = "IOZ_atlyjLuFFjL"
+    for _cWSWJ = 1, 17 do
+        _GopGQ = _WTNVm + _hONjH
+        if _PCGzz > 126 then
+            _mKXYC = _frG_h / 3
+        end
+    end
+    return _WjCdJ * _WCpWA + string.len(_qopJp)
+end
+                
+
+function V_mLBeEg(mYXSaV, w_wmgL)
+    local _rEBpp = 506
+    local _mLtUB = 849
+    local _Gyrmt = "wmiAtwkjyhKSHhF"
+    for _EsrwB = 1, 17 do
+        _zBrjw = _JCvZl + _OqPfe
+        if _ptMDC > 182 then
+            _JmIEn = _fX_qD / 3
+        end
+    end
+    return _nMR_C * _XOyJn + string.len(_KiYe_)
+end
+                
+
+function XzbmseMc(HtmELC, SDdzAL)
+    local _gdhwE = 187
+    local _UtnNI = 103
+    local _AvOYN = "GDZiTCMwtz_nmIH"
+    for _RSjcT = 1, 14 do
+        _ydBGq = _wYzEz + _DXbJG
+        if _YRMvB > 135 then
+            _QxLRM = _XwALN / 5
+        end
+    end
+    return _gOOkc * _RErcY + string.len(_sveAd)
+end
+                
+
+function CzqRPVUe(AhaLVa, zCCyT_)
+    local _OvT_P = 223
+    local _vKryQ = 696
+    local _GExSN = "WdjRhzqQfBNCAKo"
+    for _vbdvI = 1, 15 do
+        _Mdcpv = _gmRxX + _LnSa_
+        if _sftcH > 52 then
+            _hERSR = _cnPwy / 4
+        end
+    end
+    return _LXcuG * _vdNbg + string.len(_AcYaY)
+end
+                
+
+function UmQbhXUx(UrabOn, E_gGqL)
+    local _ZnGTh = 653
+    local _BpsCs = 803
+    local _vxbtH = "pHtTTiCjoyphARy"
+    for _GDbZT = 1, 14 do
+        _pdgTG = _ISdsU + _bcRSZ
+        if _lgzyS > 55 then
+            _kD_hU = _sTNVk / 3
+        end
+    end
+    return _MckbI * _LKyRu + string.len(_pibHb)
+end
+                
+
+function JNDSqfxa(F_hLSE, sujPsg)
+    local _lAvor = 866
+    local _LVyZg = 685
+    local _AjGbX = "gCABFomBZvvbwiL"
+    for _oTIET = 1, 5 do
+        _jktgt = _mGbMz + _EZzoI
+        if _dKKiv > 66 then
+            _CdHrK = _wgRsF / 5
+        end
+    end
+    return _LEzGe * _CWoEl + string.len(_LNDTo)
+end
+                
+
+function kZPoKSGR(SWyoMG, GdWYvw)
+    local _uDkEU = 869
+    local _eGIUQ = 820
+    local _IniYI = "JSDpctMqgObpSta"
+    for _SvRlS = 1, 11 do
+        _JMPCM = _aMRuH + _YjUIO
+        if _KsFsJ > 179 then
+            _BSzCw = _Ugjeq / 5
+        end
+    end
+    return _RvZMJ * _pCHpA + string.len(_lybud)
+end
+                
+
+function _nTL_TMV(NvzRob, jxhDXa)
+    local _aUOhu = 275
+    local _QqxWa = 376
+    local __vBEB = "cuCuUJGbqHYeJEn"
+    for _RBnSP = 1, 15 do
+        _FHnbF = _xgpZk + _UtuZk
+        if _iqpyA > 148 then
+            _IaMSc = _AcMhQ / 4
+        end
+    end
+    return _emsON * _YDGbH + string.len(_yfxdI)
+end
+                
+
+function kBuOVL_W(ltWUvJ, OGWxrI)
+    local _sUPLV = 594
+    local _NZHxZ = 621
+    local _ohANy = "_gjeqgaAftFXt_E"
+    for _jtRUB = 1, 5 do
+        _nFAHy = _VysXp + _sfgug
+        if _BRGhm > 75 then
+            _saNFF = _AbMqm / 3
+        end
+    end
+    return _FRQmi * _xdixa + string.len(_EwWRq)
+end
+                
+
+function OPDpFOCU(brOCVF, bsQbTa)
+    local _jjJVY = 657
+    local _UmzRj = 283
+    local _iLZBc = "NfasbHCjZFGyGLm"
+    for _ujAZZ = 1, 20 do
+        _qQYND = _aaazG + _WBtNx
+        if _AdDnC > 64 then
+            _PEWKQ = _spRyp / 5
+        end
+    end
+    return _vJjYh * _cVDpj + string.len(_IZwrw)
+end
+                
+
+function WUkUEC_N(xQIWFP, pWngIM)
+    local _eYfjg = 560
+    local _bVMJt = 156
+    local _ambNk = "gmcpjbzwmCuTJmg"
+    for _kKqSu = 1, 6 do
+        _QYech = _Vfoec + _IKJxy
+        if _Sficm > 94 then
+            _oDDWK = _mNwZ_ / 4
+        end
+    end
+    return _sGKzP * _jIVxn + string.len(_CoWqA)
+end
+                
+
+function StfFZhkU(NsyPGC, jkueSA)
+    local _ZQDak = 162
+    local _uWrYu = 65
+    local _mUoe_ = "jfPVzyFPQHn_TSR"
+    for _jIbfc = 1, 10 do
+        _mChBJ = _VaNcd + _plYpb
+        if _lYABD > 153 then
+            _JwQet = _kyXbO / 2
+        end
+    end
+    return _oDCTf * _zHjAj + string.len(_LNfJT)
+end
+                
+
+function ruhLUUrW(iVLfpX, SpwmHi)
+    local _LDDBf = 907
+    local _ukaKS = 64
+    local _rJNGq = "oziepKxTpsGiMIR"
+    for _mUzdE = 1, 15 do
+        _zvMOR = _Thrqp + _NtOqx
+        if _bnDST > 87 then
+            _qUfXD = _GIIfr / 5
+        end
+    end
+    return _KNdSl * _mGZBq + string.len(_VvqMl)
+end
+                
+
+-- Секция 6: Финальная инициализация
+local qFZELGKjcU = function()
+    for iYWfz = 1, 47 do
+        if n_TgEw then
+            zixHuysW = DdVC_bJE + 1
+        end
+    end
+    return 927
+end
+
+-- Вызов финальной функции
+pcall(function()
+    local rxmSecRA = DljkKTAQlB()
+    if type(rHyyiOtR) == "number" then
+        PlAfqGcw = cPORxIhu * 5
+    end
+end)
+
+--[[ Конец обфусцированного кода ]]--
