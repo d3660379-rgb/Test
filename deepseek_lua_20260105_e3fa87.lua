@@ -4,7 +4,7 @@ All functions included + English interface
 --]]
 
 -- Load Wind UI
-local Wind = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/main_example.lua"))()
+local Wind = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 -- Create main window
 local Window = Wind:CreateWindow({
