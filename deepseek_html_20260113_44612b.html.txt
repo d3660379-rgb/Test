@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровое меню | Подробный просмотр</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        :root {
+            --primary-color: #00a8ff;
+            --secondary-color: #9c88ff;
+            --accent-color: #00d2d3;
+            --danger-color: #f368e0;
+            --dark-bg: #0a0a14;
+            --card-bg: rgba(20, 25, 40, 0.85);
+            --text-light: #ffffff;
+            --text-muted: #a0a0ff;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--text-light);
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+            height: 100vh;
+            position: relative;
+            touch-action: pan-y;
+        }
+
+        /* Фоновые эффекты */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Контейнер меню */
+        .menu-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        /* Основное окно */
+        .main-window {
+            background: rgba(10, 10, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 
+                0 0 80px rgba(0, 150, 255, 0.3),
+                0 0 40px rgba(120, 0, 255, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            transform: scale(0.8);
+            opacity: 0;
+            animation: windowAppear 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes windowAppear {
+            0% {
+                transform: scale(0.8) translateY(50px);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Эффект свечения */
+        .glow-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 150, 255, 0.15), transparent 70%);
+            z-index: -1;
+        }
+
+        /* Заголовок */
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(0, 168, 255, 0.5); }
+            100% { text-shadow: 0 0 30px rgba(156, 136, 255, 0.7), 0 0 40px rgba(0, 210, 211, 0.4); }
+        }
+
+        .title p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Сетка игр для десктопа */
+        .games-grid-desktop {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Карусель для мобилок */
+        .games-carousel-mobile {
+            display: none;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0 40px;
+            margin-top: 20px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            width: max-content;
+        }
+
+        /* Карточка игры (десктоп) */
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(100, 150, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 300px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.8s forwards;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .game-card:nth-child(1) { animation-delay: 0.3s; }
+        .game-card:nth-child(2) { animation-delay: 0.5s; }
+        .game-card:nth-child(3) { animation-delay: 0.7s; }
+        .game-card:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes cardAppear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
+        }
+
+        .game-card:hover::before {
+            left: 100%;
+        }
+
+        .game-card:hover, .game-card:focus {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 
+                0 15px 30px rgba(0, 100, 255, 0.3),
+                0 0 30px rgba(120, 0, 255, 0.2),
+                inset 0 0 15px rgba(255, 255, 255, 0.1);
+            border-color: rgba(100, 150, 255, 0.4);
+            outline: none;
+        }
+
+        /* Карточка для карусели (мобилка) */
+        .game-card-carousel {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(100, 150, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 280px;
+            width: 280px;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        .game-card-carousel.active {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 
+                0 10px 25px rgba(0, 100, 255, 0.3),
+                0 0 20px rgba(120, 0, 255, 0.2);
+            border-color: rgba(100, 150, 255, 0.4);
+        }
+
+        /* Фоновая картинка для карточки */
+        .game-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .game-card:hover .game-bg-image {
+            opacity: 0.25;
+        }
+
+        /* Контент карточки (поверх изображения) */
+        .game-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Иконки игр (Lucide) */
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .game-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 1.5;
+        }
+
+        .game-card:hover .game-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        /* Цвета иконок для разных игр */
+        .game-card[data-game-id="1"] .game-icon svg,
+        .game-card-carousel[data-game-id="1"] .game-icon svg {
+            color: var(--primary-color);
+            stroke: var(--primary-color);
+        }
+
+        .game-card[data-game-id="2"] .game-icon svg,
+        .game-card-carousel[data-game-id="2"] .game-icon svg {
+            color: var(--secondary-color);
+            stroke: var(--secondary-color);
+        }
+
+        .game-card[data-game-id="3"] .game-icon svg,
+        .game-card-carousel[data-game-id="3"] .game-icon svg {
+            color: var(--accent-color);
+            stroke: var(--accent-color);
+        }
+
+        .game-card[data-game-id="4"] .game-icon svg,
+        .game-card-carousel[data-game-id="4"] .game-icon svg {
+            color: var(--danger-color);
+            stroke: var(--danger-color);
+        }
+
+        /* Названия игр */
+        .game-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .game-description {
+            font-size: 0.9rem;
+            color: #b0b0ff;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        /* Кнопка подробнее */
+        .details-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .details-btn:hover, .details-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.6);
+            outline: none;
+        }
+
+        /* Индикаторы карусели */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Подвал */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #6c6cff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Модальное окно деталей игры */
+        .game-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .game-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--dark-bg);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease 0.2s;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            box-shadow: 0 0 60px rgba(0, 150, 255, 0.4);
+        }
+
+        .game-modal.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .game-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .screenshot {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 180px;
+            position: relative;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.05);
+        }
+
+        .game-full-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccccff;
+            margin-bottom: 30px;
+        }
+
+        .game-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            background: rgba(30, 35, 50, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .play-game-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .play-game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 168, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .game-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 768px) {
+            .menu-container {
+                padding: 10px;
+            }
+            
+            .main-window {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+            
+            .title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .title p {
+                font-size: 1rem;
+            }
+            
+            .games-grid-desktop {
+                display: none;
+            }
+            
+            .games-carousel-mobile {
+                display: block;
+            }
+            
+            .game-card-carousel {
+                width: calc(100vw - 80px);
+                min-height: 320px;
+            }
+            
+            .modal-content {
+                max-height: 85vh;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.6rem;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .game-screenshots {
+                grid-template-columns: 1fr;
+            }
+            
+            .screenshot {
+                height: 150px;
+            }
+            
+            .game-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: stretch;
+            }
+            
+            .play-game-btn {
+                order: -1;
+            }
+            
+            .game-info {
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .games-grid-desktop {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Улучшенная поддержка тач-устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .game-card:hover {
+                transform: translateY(0) scale(1);
+            }
+            
+            .game-card:active {
+                transform: translateY(-5px) scale(1.03);
+            }
+            
+            .details-btn:hover {
+                transform: translateY(0);
+            }
+            
+            .details-btn:active {
+                transform: translateY(-3px);
+            }
+        }
+
+        /* Эффект при наведении на окно */
+        .main-window:hover {
+            box-shadow: 
+                0 0 100px rgba(0, 150, 255, 0.4),
+                0 0 60px rgba(120, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновые звезды -->
+    <div class="bg-effects" id="stars-container"></div>
+    
+    <!-- Основной контейнер меню -->
+    <div class="menu-container">
+        <div class="main-window">
+            <div class="glow-effect"></div>
+            
+            <!-- Заголовок -->
+            <div class="title">
+                <h1>ИГРОВАЯ ГАЛЕРЕЯ</h1>
+                <p>Нажмите на игру, чтобы увидеть подробности</p>
+            </div>
+            
+            <!-- Сетка игр для десктопа -->
+            <div class="games-grid-desktop" id="games-desktop-container">
+                <!-- Карточки игр будут созданы через JavaScript -->
+            </div>
+            
+            <!-- Карусель игр для мобилок -->
+            <div class="games-carousel-mobile" id="games-carousel-container">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Карточки игр будут созданы через JavaScript -->
+                </div>
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <!-- Индикаторы будут созданы через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Подвал -->
+            <div class="footer">
+                <p>Нажмите "Подробнее" для детальной информации об игре</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно с деталями игры -->
+    <div class="game-modal" id="game-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-game-title">Название игры</h2>
+                <button class="close-modal" id="close-modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="game-screenshots" id="modal-screenshots">
+                    <!-- Скриншоты будут загружены через JavaScript -->
+                </div>
+                <div class="game-full-description" id="modal-description">
+                    Полное описание игры будет здесь
+                </div>
+                <div class="game-features" id="modal-features">
+                    <!-- Особенности игры будут загружены через JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="game-info">
+                    <span id="modal-game-info">Жанр: Экшен | Сложность: Средняя | Время игры: 10+ часов</span>
+                </div>
+                <a href="#" class="play-game-btn" id="modal-play-btn" target="_blank">ИГРАТЬ СЕЙЧАС</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Массив игр с данными (ЗДЕСЬ ВЫ МОЖЕТЕ УКАЗАТЬ СВОИ ССЫЛКИ, ИМЕНА И ОПИСАНИЯ)
+        const games = [
+            {
+                id: 1,
+                name: "КОСМИЧЕСКИЕ ГОНКИ",
+                shortDescription: "Гонки на сверхсветовых кораблях через астероидные поля",
+                fullDescription: "Космические Гонки - это экшен-симулятор гонок на сверхсветовых кораблях в далеком будущем. Пролетите через опасные астероидные поля, черные дыры и туманности, участвуя в межгалактических чемпионатах. Кастомизируйте свой корабль, улучшайте двигатели и оружие, станьте лучшим пилотом галактики!",
+                url: "https://example.com/game1", // ЗАМЕНИТЕ НА СВОЮ ССЫЛКУ
+                icon: "rocket",
+                color: "#00a8ff",
+                genre: "Гонки, Экшен",
+                difficulty: "Средняя",
+                playTime: "10+ часов",
+                bgImage: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                screenshots: [
+                    "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                features: [
+                    {
+                        title: "Реалистичная физика",
+                        description: "Продвинутая система физики полета в космосе"
+                    },
+                    {
+                        title: "Кастомизация",
+                        description: "Более 100 деталей для улучшения корабля"
+                    },
+                    {
+                        title: "Мультиплеер",
+                        description: "Соревнуйтесь с игроками со всего мира"
+                    },
+                    {
+                        title: "Динамичные трассы",
+                        description: "Трассы, которые меняются во время гонки"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "КИБЕРПАЗЛ",
+                shortDescription: "Соберите технологические головоломки будущего в VR",
+                fullDescription: "Киберпазл - это VR-головоломка, которая перенесет вас в киберпанк-будущее. Решайте сложные технологические загадки, взламывайте системы безопасности и восстанавливайте поврежденные нейросети. Каждый уровень - это уникальный вызов вашей логике и креативности. Игра поддерживает все популярные VR-гарнитуры.",
+                url: "https://example.com/game2", // ЗАМЕНИТЕ НА СВОЮ ССЫЛКУ
+                icon: "puzzle",
+                color: "#9c88ff",
+                genre: "Головоломка, VR",
+                difficulty: "Высокая",
+                playTime: "15+ часов",
+                bgImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                screenshots: [
+                    "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                features: [
+                    {
+                        title: "VR-реализм",
+                        description: "Полное погружение в виртуальную реальность"
+                    },
+                    {
+                        title: "150+ уровней",
+                        description: "Уникальные головоломки возрастающей сложности"
+                    },
+                    {
+                        title: "Физика реализма",
+                        description: "Реалистичное взаимодействие с объектами"
+                    },
+                    {
+                        title: "Сюжетная линия",
+                        description: "Захватывающая история киберпанк-будущего"
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: "КВАНТОВЫЙ ПРЫЖОК",
+                shortDescription: "Преодолейте пространственно-временные аномалии",
+                fullDescription: "Квантовый Прыжок - это научно-фантастическая приключенческая игра, где вы играете за ученого, застрявшего в пространственно-временных аномалиях. Используйте квантовые технологии для прыжков между измерениями, решайте парадоксы времени и спасите мультивселенную от коллапса. Игра сочетает элементы платформера, головоломки и научной фантастики.",
+                url: "https://example.com/game3", // ЗАМЕНИТЕ НА СВОЮ ССЫЛКУ
+                icon: "atom",
+                color: "#00d2d3",
+                genre: "Приключение, Головоломка",
+                difficulty: "Средняя",
+                playTime: "20+ часов",
+                bgImage: "https://images.unsplash.com/photo-1534796636918-6a8c0be14515?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                screenshots: [
+                    "https://images.unsplash.com/photo-1534796636918-6a8c0be14515?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                features: [
+                    {
+                        title: "Мультивселенная",
+                        description: "5 уникальных измерений с разными физиками"
+                    },
+                    {
+                        title: "Квантовые способности",
+                        description: "Используйте суперпозицию и квантовую запутанность"
+                    },
+                    {
+                        title: "Динамичные миры",
+                        description: "Миры, которые меняются в зависимости от ваших действий"
+                    },
+                    {
+                        title: "Научная точность",
+                        description: "Основано на реальных квантовых теориях"
+                    }
+                ]
+            },
+            {
+                id: 4,
+                name: "НЕОНОВАЯ БАШНЯ",
+                shortDescription: "Защитите кибергород от волн роботов-захватчиков",
+                fullDescription: "Неоновая Башня - это тайловый защитник башни в стиле киберпанк. Защитите последний оплот человечества в неоновом городе будущего от волн роботов-захватчиков. Стройте и улучшайте башни, комбинируйте их эффекты, используйте особые способности и стратегию, чтобы остановить вражеские орды. Каждая волна сложнее предыдущей!",
+                url: "https://example.com/game4", // ЗАМЕНИТЕ НА СВОЮ ССЫЛКУ
+                icon: "tower-control",
+                color: "#f368e0",
+                genre: "Защита башни, Стратегия",
+                difficulty: "Разная",
+                playTime: "30+ часов",
+                bgImage: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                screenshots: [
+                    "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ],
+                features: [
+                    {
+                        title: "12 типов башен",
+                        description: "Каждая с уникальными улучшениями и способностями"
+                    },
+                    {
+                        title: "Бесконечный режим",
+                        description: "Сколько волн вы сможете пережить?"
+                    },
+                    {
+                        title: "25 карт",
+                        description: "Уникальные тактические возможности на каждой"
+                    },
+                    {
+                        title: "Редактор карт",
+                        description: "Создавайте свои собственные уровни"
+                    }
+                ]
+            }
+        ];
+
+        // Глобальные переменные для карусели
+        let currentCarouselIndex = 0;
+
+        // Создание звездного фона
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starsCount = window.innerWidth < 768 ? 80 : 150;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+
+        // Создание карточек игр для десктопа
+        function createDesktopGameCards() {
+            const container = document.getElementById('games-desktop-container');
+            
+            games.forEach((game, index) => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.setAttribute('data-game-id', game.id);
+                gameCard.setAttribute('aria-label', `Игра ${game.name}`);
+                
+                // Устанавливаем задержку анимации
+                gameCard.style.animationDelay = `${0.3 + index * 0.2}s`;
+                
+                gameCard.innerHTML = `
+                    <img src="${game.bgImage}" alt="${game.name}" class="game-bg-image">
+                    <div class="game-content">
+                        <div class="game-icon">
+                            <i data-lucide="${game.icon}"></i>
+                        </div>
+                        <h3 class="game-title">${game.name}</h3>
+                        <p class="game-description">${game.shortDescription}</p>
+                        <button class="details-btn" data-game-id="${game.id}">ПОДРОБНЕЕ</button>
+                    </div>
+                `;
+                
+                container.appendChild(gameCard);
+            });
+        }
+
+        // Создание карусели для мобилок
+        function createMobileCarousel() {
+            const track = document.getElementById('carousel-track');
+            const indicatorsContainer = document.getElementById('carousel-indicators');
+            
+            games.forEach((game, index) => {
+                // Создаем карточку для карусели
+                const gameCard = document.createElement('div');
+                gameCard.className = `game-card-carousel ${index === 0 ? 'active' : ''}`;
+                gameCard.setAttribute('data-game-id', game.id);
+                gameCard.setAttribute('aria-label', `Игра ${game.name}`);
+                
+                gameCard.innerHTML = `
+                    <img src="${game.bgImage}" alt="${game.name}" class="game-bg-image">
+                    <div class="game-content">
+                        <div class="game-icon">
+                            <i data-lucide="${game.icon}"></i>
+                        </div>
+                        <h3 class="game-title">${game.name}</h3>
+                        <p class="game-description">${game.shortDescription}</p>
+                        <button class="details-btn" data-game-id="${game.id}">ПОДРОБНЕЕ</button>
+                    </div>
+                `;
+                
+                track.appendChild(gameCard);
+                
+                // Создаем индикатор
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+                indicator.setAttribute('data-index', index);
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            // Настраиваем обработчики для карусели
+            setupCarousel();
+        }
+
+        // Настройка карусели
+        function setupCarousel() {
+            const track = document.getElementById('carousel-track');
+            const cards = document.querySelectorAll('.game-card-carousel');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Обработчик для индикаторов
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    scrollToCarouselItem(index);
+                });
+            });
+            
+            // Обработчик прокрутки для определения активной карточки
+            track.addEventListener('scroll', function() {
+                updateActiveCarouselItem();
+            });
+            
+            // Начальная настройка
+            updateActiveCarouselItem();
+        }
+
+        // Прокрутка к определенному элементу карусели
+        function scrollToCarouselItem(index) {
+            const track = document.getElementById('carousel-track');
+            const cards = document.querySelectorAll('.game-card-carousel');
+            
+            if (cards[index]) {
+                const card = cards[index];
+                const cardWidth = card.offsetWidth;
+                const gap = 20; // соответствует gap в CSS
+                const scrollPosition = index * (cardWidth + gap);
+                
+                track.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                currentCarouselIndex = index;
+                updateCarouselIndicators(index);
+            }
+        }
+
+        // Обновление активного элемента карусели
+        function updateActiveCarouselItem() {
+            const track = document.getElementById('carousel-track');
+            const cards = document.querySelectorAll('.game-card-carousel');
+            
+            // Находим ближайшую карточку к центру
+            let closestIndex = 0;
+            let minDistance = Infinity;
+            const trackCenter = track.scrollLeft + track.offsetWidth / 2;
+            
+            cards.forEach((card, index) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const distance = Math.abs(cardCenter - trackCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIndex = index;
+                }
+            });
+            
+            // Обновляем активную карточку
+            cards.forEach((card, index) => {
+                if (index === closestIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+            
+            // Обновляем индикаторы
+            updateCarouselIndicators(closestIndex);
+            currentCarouselIndex = closestIndex;
+        }
+
+        // Обновление индикаторов карусели
+        function updateCarouselIndicators(activeIndex) {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === activeIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Открытие модального окна с деталями игры
+        function openGameModal(gameId) {
+            const game = games.find(g => g.id === gameId);
+            if (!game) return;
+            
+            // Заполняем модальное окно данными
+            document.getElementById('modal-game-title').textContent = game.name;
+            document.getElementById('modal-description').textContent = game.fullDescription;
+            document.getElementById('modal-play-btn').href = game.url;
+            document.getElementById('modal-game-info').textContent = 
+                `Жанр: ${game.genre} | Сложность: ${game.difficulty} | Время игры: ${game.playTime}`;
+            
+            // Заполняем скриншоты
+            const screenshotsContainer = document.getElementById('modal-screenshots');
+            screenshotsContainer.innerHTML = '';
+            
+            game.screenshots.forEach(screenshot => {
+                const screenshotElement = document.createElement('div');
+                screenshotElement.className = 'screenshot';
+                screenshotElement.innerHTML = `<img src="${screenshot}" alt="Скриншот ${game.name}">`;
+                screenshotsContainer.appendChild(screenshotElement);
+            });
+            
+            // Заполняем особенности
+            const featuresContainer = document.getElementById('modal-features');
+            featuresContainer.innerHTML = '';
+            
+            game.features.forEach(feature => {
+                const featureElement = document.createElement('div');
+                featureElement.className = 'feature';
+                featureElement.innerHTML = `
+                    <div class="feature-title">${feature.title}</div>
+                    <div class="feature-description">${feature.description}</div>
+                `;
+                featuresContainer.appendChild(featureElement);
+            });
+            
+            // Показываем модальное окно
+            const modal = document.getElementById('game-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Закрытие модального окна
+        function closeGameModal() {
+            const modal = document.getElementById('game-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Обработчики для улучшенной поддержки мобилок
+        function setupMobileSupport() {
+            // Предотвращаем масштабирование при двойном тапе
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // Обработчики свайпа для карусели
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            const carousel = document.getElementById('games-carousel-container');
+            
+            carousel.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            carousel.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Свайп влево - следующий
+                        scrollToCarouselItem(Math.min(currentCarouselIndex + 1, games.length - 1));
+                    } else {
+                        // Свайп вправо - предыдущий
+                        scrollToCarouselItem(Math.max(currentCarouselIndex - 1, 0));
+                    }
+                }
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createDesktopGameCards();
+            createMobileCarousel();
+            
+            // Инициализация Lucide иконок
+            lucide.createIcons();
+            
+            // Настройка поддержки мобилок
+            setupMobileSupport();
+            
+            // Анимация заголовка
+            const title = document.querySelector('.title h1');
+            setInterval(() => {
+                const hue = Math.floor(Math.random() * 60) + 180;
+                title.style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(${hue + 40}, 100%, 60%), hsl(${hue + 80}, 100%, 50%))`;
+                title.style.webkitBackgroundClip = 'text';
+                title.style.backgroundClip = 'text';
+            }, 3000);
+            
+            // Обработчики для кнопок "Подробнее"
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('details-btn') || e.target.closest('.details-btn')) {
+                    const btn = e.target.classList.contains('details-btn') ? e.target : e.target.closest('.details-btn');
+                    const gameId = parseInt(btn.getAttribute('data-game-id'));
+                    openGameModal(gameId);
+                }
+            });
+            
+            // Обработчик закрытия модального окна
+            document.getElementById('close-modal').addEventListener('click', closeGameModal);
+            
+            // Закрытие модального окна при клике на фон
+            document.getElementById('game-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGameModal();
+                }
+            });
+            
+            // Закрытие модального окна клавишей Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeGameModal();
+                }
+            });
+            
+            // Автоматическая прокрутка карусели для мобилок (если нужно)
+            if (window.innerWidth < 768) {
+                // setInterval(() => {
+                //     const nextIndex = (currentCarouselIndex + 1) % games.length;
+                //     scrollToCarouselItem(nextIndex);
+                // }, 5000);
+            }
+            
+            // Логирование для отладки
+            console.log('Игровое меню с детальным просмотром загружено!');
+        });
+        
+        // Обработка изменения ориентации экрана
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Пересоздаем звезды при изменении ориентации
+                const starsContainer = document.getElementById('stars-container');
+                starsContainer.innerHTML = '';
+                createStars();
+            }, 300);
+        });
+    </script>
+</body>
+</html>
